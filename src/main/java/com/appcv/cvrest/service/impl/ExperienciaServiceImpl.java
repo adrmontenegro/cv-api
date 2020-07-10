@@ -1,6 +1,5 @@
 package com.appcv.cvrest.service.impl;
 
-import com.appcv.cvrest.entity.Entidad;
 import com.appcv.cvrest.entity.Experiencia;
 import com.appcv.cvrest.repository.ExperienciaRepository;
 import com.appcv.cvrest.service.ExperienciaService;
@@ -21,6 +20,12 @@ public class ExperienciaServiceImpl implements ExperienciaService {
         List<Experiencia> result = new ArrayList<>();
         experienciaRepository.findAll().forEach(result::add);
         return result;
+    }
+
+    @Override
+    public Experiencia findById(Long id) {
+        Optional<Experiencia> experiencia = experienciaRepository.findById(id);
+        return experiencia.isPresent() ? experiencia.get() : null;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.appcv.cvrest.web;
 
+import com.appcv.cvrest.entity.Entidad;
 import com.appcv.cvrest.entity.Experiencia;
 import com.appcv.cvrest.service.ExperienciaService;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,11 @@ public class ExperienciaController {
     @GetMapping
     public List<Experiencia> findAll() {
         return experienciaService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Experiencia findById(@PathVariable Long id) {
+        return experienciaService.findById(id);
     }
 
     @PostMapping

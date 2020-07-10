@@ -24,6 +24,12 @@ public class EntidadServiceImpl implements EntidadService {
     }
 
     @Override
+    public Entidad findById(Long id) {
+        Optional<Entidad> entidad = entidadRepository.findById(id);
+        return entidad.isPresent() ? entidad.get() : null;
+    }
+
+    @Override
     public Entidad save(Entidad entidad) {
         return entidadRepository.save(entidad);
     }

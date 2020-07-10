@@ -24,6 +24,12 @@ public class TipoFormacionServiceImpl implements TipoFormacionService {
     }
 
     @Override
+    public TipoFormacion findById(Integer id) {
+        Optional<TipoFormacion> tipoFormacion = tipoFormacionRepository.findById(id);
+        return tipoFormacion.isPresent() ? tipoFormacion.get() : null;
+    }
+
+    @Override
     public TipoFormacion save(TipoFormacion tipoFormacion) {
         return tipoFormacionRepository.save(tipoFormacion);
     }
