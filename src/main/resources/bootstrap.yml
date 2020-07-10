@@ -1,0 +1,10 @@
+spring:
+  api:
+    path: proyecto-final/v1.0/cv
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cv
+    username: postgres
+    password: GGiziadr97
+  jpa:
+    hibernate:
+      ddl-auto: create
