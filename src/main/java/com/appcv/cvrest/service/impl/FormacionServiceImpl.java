@@ -1,13 +1,11 @@
 package com.appcv.cvrest.service.impl;
 
-import com.appcv.cvrest.entity.Experiencia;
 import com.appcv.cvrest.entity.Formacion;
 import com.appcv.cvrest.repository.FormacionRepository;
 import com.appcv.cvrest.service.FormacionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +20,12 @@ public class FormacionServiceImpl implements FormacionService {
         List<Formacion> result = new ArrayList<>();
         formacionRepository.findAll().forEach(result::add);
         return result;
+    }
+
+    @Override
+    public Formacion findById(Long id) {
+        Optional<Formacion> formacion = formacionRepository.findById(id);
+        return formacion.isPresent() ? formacion.get() : null;
     }
 
     @Override

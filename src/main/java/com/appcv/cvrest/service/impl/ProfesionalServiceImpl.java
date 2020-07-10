@@ -1,6 +1,5 @@
 package com.appcv.cvrest.service.impl;
 
-import com.appcv.cvrest.entity.Ocupacion;
 import com.appcv.cvrest.entity.Profesional;
 import com.appcv.cvrest.repository.ProfesionalRepository;
 import com.appcv.cvrest.service.ProfesionalService;
@@ -21,6 +20,12 @@ public class ProfesionalServiceImpl implements ProfesionalService {
         List<Profesional> result = new ArrayList<>();
         profesionalRepository.findAll().forEach(result::add);
         return result;
+    }
+
+    @Override
+    public Profesional findById(Long id) {
+        Optional<Profesional> profesional = profesionalRepository.findById(id);
+        return profesional.isPresent() ? profesional.get() : null;
     }
 
     @Override

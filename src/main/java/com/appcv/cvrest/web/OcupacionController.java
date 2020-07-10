@@ -19,6 +19,11 @@ public class OcupacionController {
         return ocupacionService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Ocupacion findById(@PathVariable Long id) {
+        return ocupacionService.findById(id);
+    }
+
     @PostMapping
     public Ocupacion create(@RequestBody Ocupacion ocupacion) {
         return ocupacionService.save(ocupacion);

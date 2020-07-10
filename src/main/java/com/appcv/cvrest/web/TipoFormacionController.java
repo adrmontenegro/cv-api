@@ -19,6 +19,11 @@ public class TipoFormacionController {
         return tipoFormacionService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public TipoFormacion findById(@PathVariable Integer id) {
+        return tipoFormacionService.findById(id);
+    }
+
     @PostMapping
     public TipoFormacion create(@RequestBody TipoFormacion tipoFormacion) {
         return tipoFormacionService.save(tipoFormacion);

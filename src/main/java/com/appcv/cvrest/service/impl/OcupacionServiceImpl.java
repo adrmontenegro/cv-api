@@ -1,6 +1,5 @@
 package com.appcv.cvrest.service.impl;
 
-import com.appcv.cvrest.entity.Formacion;
 import com.appcv.cvrest.entity.Ocupacion;
 import com.appcv.cvrest.repository.OcupacionRepository;
 import com.appcv.cvrest.service.OcupacionService;
@@ -21,6 +20,12 @@ public class OcupacionServiceImpl implements OcupacionService {
         List<Ocupacion> result = new ArrayList<>();
         ocupacionRepository.findAll().forEach(result::add);
         return result;
+    }
+
+    @Override
+    public Ocupacion findById(Long id) {
+        Optional<Ocupacion> ocupacion = ocupacionRepository.findById(id);
+        return ocupacion.isPresent() ? ocupacion.get() : null;
     }
 
     @Override

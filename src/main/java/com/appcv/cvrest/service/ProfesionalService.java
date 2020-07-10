@@ -7,6 +7,9 @@ import java.util.List;
 
 public interface ProfesionalService {
     List<Profesional> findAll();
+
+    Profesional findById(Long id);
+
     Profesional save(Profesional profesional);
     Profesional delete(Long id);
 }

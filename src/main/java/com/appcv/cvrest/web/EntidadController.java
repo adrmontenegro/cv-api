@@ -18,6 +18,11 @@ public class EntidadController {
         return entidadService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Entidad findById(@PathVariable Long id) {
+        return entidadService.findById(id);
+    }
+
     @PostMapping
     public Entidad create(@RequestBody Entidad entidad) {
         return entidadService.save(entidad);

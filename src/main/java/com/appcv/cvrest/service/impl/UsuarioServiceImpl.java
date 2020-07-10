@@ -1,5 +1,6 @@
 package com.appcv.cvrest.service.impl;
 
+import com.appcv.cvrest.entity.Profesional;
 import com.appcv.cvrest.entity.TipoFormacion;
 import com.appcv.cvrest.entity.Usuario;
 import com.appcv.cvrest.repository.UsuarioRepository;
@@ -21,6 +22,12 @@ public class UsuarioServiceImpl implements UsuarioService {
         List<Usuario> result = new ArrayList<>();
         usuarioRepository.findAll().forEach(result::add);
         return result;
+    }
+
+    @Override
+    public Usuario findById(Long id) {
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        return usuario.isPresent() ? usuario.get() : null;
     }
 
     @Override

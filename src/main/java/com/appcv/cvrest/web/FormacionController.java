@@ -1,5 +1,6 @@
 package com.appcv.cvrest.web;
 
+import com.appcv.cvrest.entity.Experiencia;
 import com.appcv.cvrest.entity.Formacion;
 import com.appcv.cvrest.service.FormacionService;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,11 @@ public class FormacionController {
     @GetMapping
     public List<Formacion> findAll() {
         return formacionService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Formacion findById(@PathVariable Long id) {
+        return formacionService.findById(id);
     }
 
     @PostMapping

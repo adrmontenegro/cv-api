@@ -19,6 +19,11 @@ public class ProfesionalController {
         return profesionalService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Profesional findById(@PathVariable Long id) {
+        return profesionalService.findById(id);
+    }
+
     @PostMapping
     public Profesional create(@RequestBody Profesional profesional) {
         return profesionalService.save(profesional);
